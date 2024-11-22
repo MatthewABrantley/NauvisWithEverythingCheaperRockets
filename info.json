@@ -1,9 +1,9 @@
 {
     "name": "SpaceAgeWithoutSpace",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "title": "Space Age Without Space",
     "author": "Alchav",
-    "description": "All the new Space Age content minus the other planets and interplanetary logistics. Play with the new toys, craft the new science packs, and battle the new enemies at home on Nauvis.\n\nEarly alpha version! May be wonky.",
+    "description": "All the new Space Age content minus the other planets and interplanetary logistics. Play with the new toys, craft the new science packs, and battle the new enemies at home on Nauvis.\n\nEarly beta version! May be wonky.",
     "factorio_version": "2.0",
     "dependencies": [
         "base",
