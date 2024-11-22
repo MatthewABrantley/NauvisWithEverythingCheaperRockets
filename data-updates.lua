@@ -384,7 +384,7 @@ data.raw.technology["asteroid-productivity"] = nil
       inputs[i] = "space-science-pack"
     end
   end
-
+data.raw.lab.biolab.inputs = data.raw.lab["lab"].inputs
 local scrap_recipe_setting = settings.startup["scrap-recipe"].value
 
 if scrap_recipe_setting == "no-ice" then
@@ -506,14 +506,6 @@ data.raw.technology.foundry.effects = {
       {
         type = "unlock-recipe",
         recipe = "foundry"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "molten-iron-from-lava"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "molten-copper-from-lava"
       },
       {
         type = "unlock-recipe",
