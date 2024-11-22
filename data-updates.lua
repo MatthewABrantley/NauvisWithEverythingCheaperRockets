@@ -348,8 +348,10 @@ data.raw.technology["lithium-processing"].effects = {
 for _, tech in pairs(data.raw.technology) do
   if tech.unit and tech.unit.ingredients then
     for i = #tech.unit.ingredients, 1, -1 do
-      if tech.unit.ingredients[i][1] == "space-science-pack" or tech.unit.ingredients[i].name == "space-science-pack" then
+      if tech.unit.ingredients[i][1] == "space-science-pack" then
         table.remove(tech.unit.ingredients, i)
+      elseif tech.unit.ingredients[i][1] == "promethium-science-pack" then
+        tech.unit.ingredients[i][1] = "space-science-pack"
       end
     end
   end
@@ -358,6 +360,8 @@ for _, tech in pairs(data.raw.technology) do
     for i = #tech.prerequisites, 1, -1 do
       if tech.prerequisites[i] == "space-science-pack" then
         table.remove(tech.prerequisites, i)
+      elseif tech.prerequisites[i] == "promethium-science-pack" then
+        tech.prerequisites[i] = "space-science-pack"
       end
     end
   end
