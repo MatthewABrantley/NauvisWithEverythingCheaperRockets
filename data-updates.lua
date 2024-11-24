@@ -332,6 +332,38 @@ data:extend({
     },
     results = {{type="item", name="satellite", amount=1}},
     requester_paste_multiplier = 1
+  },
+
+  {
+    type = "technology",
+    name = "lava-processing",
+    localised_name = "Lava Processing",
+    localised_description = "Enables processing Molten Iron and Molten Copper from Lava.",
+    icon = "__space-age__/graphics/icons/fluid/lava.png",
+    icon_size = 64,
+    effects = {
+      {
+        type = "unlock-recipe",
+        recipe = "molten-iron-from-lava"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "molten-copper-from-lava"
+      }
+    },
+    prerequisites = {"production-science-pack", "metallurgic-science-pack"},
+    unit = {
+      count = 1000,
+      ingredients =
+      {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1},
+        {"production-science-pack", 1},
+        {"metallurgic-science-pack", 1}
+      },
+      time = 30
+    }
   }
 
 })
