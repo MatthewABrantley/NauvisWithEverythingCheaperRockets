@@ -72,7 +72,6 @@ data.raw["autoplace-control"]["lithium_brine"]["can_be_disabled"] = false
 data.raw["autoplace-control"]["fluorine_vent"]["can_be_disabled"] = false
 data.raw["autoplace-control"]["vulcanus_volcanism"]["can_be_disabled"] = true
 data.raw["autoplace-control"]["vulcanus_volcanism"]["order"] = nil
-data.raw["autoplace-control"]["vulcanus_volcanism"].localised_name = "[img=fluid.lava] Lava"
 data.raw["autoplace-control"]["vulcanus_volcanism"]["category"] = "resource"
 data:extend({
 --     {
@@ -85,14 +84,14 @@ data:extend({
     {
         type = "autoplace-control",
         name = "oil_sand",
-        localised_name = "[img=fluid.heavy-oil] Oil Sand",
+--         localised_name = "[img=fluid.heavy-oil] Oil Sand",
         category = "resource",
         richness = false
     },
     {
         type = "autoplace-control",
         name = "ammoniacal_ocean",
-        localised_name = "[img=fluid.ammoniacal-solution] Ammoniacal Ocean",
+--         localised_name = "[img=fluid.ammoniacal-solution] Ammoniacal Ocean",
         category = "resource",
         richness = false,
         can_be_disabled = false
@@ -337,8 +336,8 @@ data:extend({
   {
     type = "technology",
     name = "lava-processing",
-    localised_name = "Lava Processing",
-    localised_description = "Enables processing Molten Iron and Molten Copper from Lava.",
+--     localised_name = "Lava Processing",
+--     localised_description = "Enables processing Molten Iron and Molten Copper from Lava.",
     icon = "__space-age__/graphics/icons/fluid/lava.png",
     icon_size = 64,
     effects = {
@@ -591,7 +590,7 @@ data.raw.technology["rocket-part-productivity"].unit.ingredients = {
         {"space-science-pack", 1}
 }
 data.raw.technology["tungsten-carbide"].prerequisites = {"lubricant", "concrete", "electric-engine"}
-data.raw.technology["tungsten-carbide"].localised_description = "Allows you to make tungsten carbide, a hard heat resistant ceramic. In Space Age Without Space, your character can mine Tungsten Ore from Tungsten Ore patches."
+-- data.raw.technology["tungsten-carbide"].localised_description = "Allows you to make tungsten carbide, a hard heat resistant ceramic. In Space Age Without Space, your character can mine Tungsten Ore from Tungsten Ore patches."
 data.raw.technology["tungsten-carbide"].research_trigger = nil
 data.raw.technology["tungsten-carbide"].unit =
 {
