@@ -766,3 +766,8 @@ main_menu_simulations.fulgora_nightfall = nil
 main_menu_simulations.fulgora_race = nil
 main_menu_simulations.aquilo_send_help = nil
 main_menu_simulations.aquilo_starter = nil
+
+data.raw["create-platform-achievement"] = nil
+data.raw["change-surface-achievement"] = nil
+data.raw["space-connection-distance-traveled-achievement"] = nil
+data.raw["research-with-science-pack-achievement"]["research-with-promethium"] = nil
