@@ -28,7 +28,6 @@ data.raw.planet.aquilo.map_gen_settings = nil
 -- data.raw["autoplace-control"].gleba_water = nil
 -- data.raw["autoplace-control"].fulgora_islands = nil
 data.raw["autoplace-control"].vulcanus_coal = nil
-data.raw["autoplace-control"].sulfuric_acid_geyser = nil
 data.raw["autoplace-control"].gleba_stone = nil
 data.raw["autoplace-control"].aquilo_crude_oil = nil
 -- data.raw["autoplace-control"].gleba_cliffs = nil
@@ -47,25 +46,94 @@ data.raw.planet.nauvis.map_gen_settings.autoplace_controls["tungsten_ore"] = {}
 data.raw.planet.nauvis.map_gen_settings.autoplace_settings.entity.settings["tungsten-ore"] = {}
 data.raw.planet.nauvis.map_gen_settings.autoplace_controls["gleba_enemy_base"] = {}
 data.raw.planet.nauvis.map_gen_settings.autoplace_controls["gleba_plants"] = {}
-data.raw.resource.calcite.autoplace = resource_autoplace.resource_autoplace_settings
-    {
-      name = "calcite",
-      order = "c",
-      base_density = 0.9,
-      base_spots_per_km2 = 1.25,
-      has_starting_area_placement = false,
-      random_spot_size_minimum = 2,
-      random_spot_size_maximum = 4,
-      regular_rq_factor_multiplier = 1
-    }
-data.raw.resource["tungsten-ore"].autoplace =
-{
-    order = "c",
-    has_starting_area_placement = false,
-    probability_expression = "vulcanus_tungsten_ore_probability",
-    richness_expression = "vulcanus_tungsten_ore_richness"
-    }
+data.raw.planet.nauvis.map_gen_settings.autoplace_controls["vulcanus_volcanism"] = {}
+data.raw.planet.nauvis.map_gen_settings.autoplace_controls["sulfuric_acid_geyser"] = {}
+data.raw.planet.nauvis.map_gen_settings.autoplace_settings.entity.settings["sulfuric-acid-geyser"] = {}
+data.raw.planet.nauvis.map_gen_settings.autoplace_controls["oil_sand"] = {}
+data.raw.planet.nauvis.map_gen_settings.autoplace_controls["ammoniacal_ocean"] = {}
+data.raw.planet.nauvis.map_gen_settings.autoplace_settings.tile.settings["lava"] = {}
+data.raw.planet.nauvis.map_gen_settings.autoplace_settings.tile.settings["oil-ocean-deep"] = {}
+data.raw.planet.nauvis.map_gen_settings.property_expression_names["entity:tungsten-ore:probability"] = "vulcanus_tungsten_ore_probability"
+data.raw.planet.nauvis.map_gen_settings.property_expression_names["entity:tungsten-ore:richness"] = "vulcanus_tungsten_ore_richness"
+data.raw.planet.nauvis.map_gen_settings.property_expression_names["entity:calcite:probability"] = "vulcanus_calcite_probability"
+data.raw.planet.nauvis.map_gen_settings.property_expression_names["entity:calcite:richness"] = "vulcanus_calcite_richness"
+data.raw.planet.nauvis.map_gen_settings.property_expression_names["entity:sulfuric-acid-geyser:probability"] = "vulcanus_sulfuric_acid_geyser_probability"
+data.raw.planet.nauvis.map_gen_settings.property_expression_names["entity:sulfuric-acid-geyser:richness"] = "vulcanus_sulfuric_acid_geyser_richness"
 
+data.raw["autoplace-control"]["iron-ore"]["can_be_disabled"] = false
+data.raw["autoplace-control"]["copper-ore"]["can_be_disabled"] = false
+data.raw["autoplace-control"]["stone"]["can_be_disabled"] = false
+data.raw["autoplace-control"]["coal"]["can_be_disabled"] = false
+data.raw["autoplace-control"]["crude-oil"]["can_be_disabled"] = false
+data.raw["autoplace-control"]["calcite"]["can_be_disabled"] = false
+data.raw["autoplace-control"]["tungsten_ore"]["can_be_disabled"] = false
+data.raw["autoplace-control"]["scrap"]["can_be_disabled"] = false
+data.raw["autoplace-control"]["lithium_brine"]["can_be_disabled"] = false
+data.raw["autoplace-control"]["fluorine_vent"]["can_be_disabled"] = false
+data.raw["autoplace-control"]["vulcanus_volcanism"]["can_be_disabled"] = true
+data.raw["autoplace-control"]["vulcanus_volcanism"]["order"] = nil
+data.raw["autoplace-control"]["vulcanus_volcanism"].localised_name = "[img=fluid.lava] Lava"
+data.raw["autoplace-control"]["vulcanus_volcanism"]["category"] = "resource"
+data:extend({
+--     {
+--         type = "autoplace-control",
+--         name = "demolisher-territories",
+--         localised_name = "Demolisher Territories",
+--         category = "enemy",
+--         richness = false
+--     },
+    {
+        type = "autoplace-control",
+        name = "oil_sand",
+        localised_name = "[img=fluid.heavy-oil] Oil Sand",
+        category = "resource",
+        richness = false
+    },
+    {
+        type = "autoplace-control",
+        name = "ammoniacal_ocean",
+        localised_name = "[img=fluid.ammoniacal-solution] Ammoniacal Ocean",
+        category = "resource",
+        richness = false,
+        can_be_disabled = false
+    },
+})
+data.raw.tile["oil-ocean-deep"].autoplace = resource_autoplace.resource_autoplace_settings
+    {
+      name = "oil-ocean",
+      order = "a",
+      base_density = 7,
+      base_spots_per_km2 = 0.02,
+      random_probability = 1,
+      random_spot_size_minimum = 0.02,
+      random_spot_size_maximum = 0.03,
+      has_starting_area_placement = false,
+      autoplace_control_name = "oil_sand"
+    }
+data.raw.tile["lava"].autoplace = resource_autoplace.resource_autoplace_settings
+    {
+      name = "lava",
+      order = "a",
+      base_density = 7,
+      base_spots_per_km2 = 0.04,
+      random_probability = 1,
+      random_spot_size_minimum = 0.2,
+      random_spot_size_maximum = 0.7,
+      has_starting_area_placement = false,
+      autoplace_control_name = "vulcanus_volcanism"
+    }
+data.raw.tile["lava-hot"].autoplace = resource_autoplace.resource_autoplace_settings
+    {
+      name = "lava",
+      order = "a",
+      base_density = 7,
+      base_spots_per_km2 = 0.01,
+      random_probability = 1,
+      random_spot_size_minimum = 0.2,
+      random_spot_size_maximum = 0.6,
+      has_starting_area_placement = false,
+      autoplace_control_name = "vulcanus_volcanism"
+    }
 
 gleba_land_tiles = {
   "natural-yumako-soil",
@@ -132,8 +200,8 @@ data.raw.tile["ammoniacal-ocean"].autoplace = resource_autoplace.resource_autopl
       random_probability = 1,
       random_spot_size_minimum = 0.3,
       random_spot_size_maximum = 1, -- don't randomize spot size
---       additional_richness = 220000, -- this increases the total everywhere, so base_density needs to be decreased to compensate
       has_starting_area_placement = false,
+      autoplace_control_name = "ammoniacal_ocean"
     }
 data.raw.tile["ammoniacal-ocean-2"].autoplace = resource_autoplace.resource_autoplace_settings
     {
@@ -145,6 +213,7 @@ data.raw.tile["ammoniacal-ocean-2"].autoplace = resource_autoplace.resource_auto
       random_spot_size_minimum = 0.3,
       random_spot_size_maximum = 1, -- don't randomize spot size
       has_starting_area_placement = false,
+      autoplace_control_name = "ammoniacal_ocean"
     }
 
 
@@ -245,7 +314,7 @@ data:extend({
     rocket_launch_products = {{type = "item", name = "space-science-pack", amount = 1000}},
     send_to_orbit_mode = "automated"
   },
-    {
+  {
     type = "recipe",
     name = "satellite",
     energy_required = 5,
@@ -373,7 +442,6 @@ data.raw.technology["planet-discovery-gleba"] = nil
 data.raw.technology["planet-discovery-fulgora"] = nil
 data.raw.technology["planet-discovery-aquilo"] = nil
 data.raw.technology["lightning-collector"] = nil
-data.raw.technology["rail-support-foundations"] = nil
 data.raw.technology["asteroid-reprocessing"] = nil
 data.raw.technology["advanced-asteroid-processing"] = nil
 data.raw.technology["promethium-science-pack"] = nil
@@ -466,8 +534,6 @@ else
     })
 end
 
-data.raw.technology["foundation"] = nil
-
 data.raw.technology["calcite-processing"].research_trigger = nil
 data.raw.technology["calcite-processing"].prerequisites = {"metallurgic-science-pack"}
 data.raw.technology["calcite-processing"].unit = {
@@ -493,6 +559,7 @@ data.raw.technology["rocket-part-productivity"].unit.ingredients = {
         {"space-science-pack", 1}
 }
 data.raw.technology["tungsten-carbide"].prerequisites = {"lubricant", "concrete", "electric-engine"}
+data.raw.technology["tungsten-carbide"].localised_description = "Allows you to make tungsten carbide, a hard heat resistant ceramic. In Space Age Without Space, your character can mine Tungsten Ore from Tungsten Ore patches."
 data.raw.technology["tungsten-carbide"].research_trigger = nil
 data.raw.technology["tungsten-carbide"].unit =
 {
