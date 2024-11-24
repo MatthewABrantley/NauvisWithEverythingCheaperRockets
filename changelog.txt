@@ -1,0 +1,36 @@
+Version: 0.0.6
+Date: 2024-11-23
+  Features:
+    - Oh, so there is a proper way to include a changelog.
+---------------------------------------------------------------------------------------------------
+Version: 0.0.5
+Date: 2024-11-23
+  Bugfixes:
+    - Victory screen no longer congratulates you for reaching the Solar System Edge with a Space Platform which you most certainly have not done.
+---------------------------------------------------------------------------------------------------
+Version: 0.0.4
+Date: 2024-11-23
+  Features:
+    - Improvements to map generation and options.
+    - Due to popular demand: Lava, Oil Sand, and Sulfuric Acid Geysers have been made available as resource options.
+    - Irrelevant/impossible achievements have been removed.
+---------------------------------------------------------------------------------------------------
+Version: 0.0.3
+Date: 2024-11-22
+  Features:
+    - Any technologies with Promethium Science Pack as a prerequisite or ingredient will have it swapped to Space Science Pack, to increase compatibility with other mods.
+---------------------------------------------------------------------------------------------------
+Version: 0.0.2
+Date: 2024-11-22
+  Features:
+    - Thumbnail graphic.
+    - Lava recipes removed.
+    - Restore some base-game properties on the Cargo Landing Pad. Trash inventory slots no longer present.
+  Bugfixes:
+    - Fixes a startup crash on the experimental 2.0.20 release.
+    - Remove Promethium Science Pack slot from Biolab.
+---------------------------------------------------------------------------------------------------
+Version: 0.0.1
+Date: 2024-11-21
+  Features:
+    - Initial release.
