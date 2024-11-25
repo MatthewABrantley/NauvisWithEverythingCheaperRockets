@@ -1,3 +1,10 @@
+Version: 0.0.8
+Date: 2024-11-25
+  Features:
+    - Compatibility with Alien Biomes mod.
+    - Japanese language support.
+    - Improved Korean language support.
+---------------------------------------------------------------------------------------------------
 Version: 0.0.7
 Date: 2024-11-24
   Features:
