@@ -215,17 +215,25 @@ data.raw.tile["ammoniacal-ocean-2"].autoplace = resource_autoplace.resource_auto
       autoplace_control_name = "ammoniacal_ocean"
     }
 
-
-data.raw.tree["cuttlepop"].autoplace["tile_restriction"] = gleba_land_tiles
-data.raw.tree["sunnycomb"].autoplace["tile_restriction"] = gleba_land_tiles
-data.raw.tree["slipstack"].autoplace["tile_restriction"] = gleba_land_tiles
-data.raw.tree["funneltrunk"].autoplace["tile_restriction"] = gleba_land_tiles
-data.raw.tree["hairyclubnub"].autoplace["tile_restriction"] = gleba_land_tiles
-data.raw.tree["teflilly"].autoplace["tile_restriction"] = gleba_land_tiles
-data.raw.tree["lickmaw"].autoplace["tile_restriction"] = gleba_land_tiles
-data.raw.tree["stingfrond"].autoplace["tile_restriction"] = gleba_land_tiles
-data.raw.tree["boompuff"].autoplace["tile_restriction"] = gleba_land_tiles
-data.raw.tree["water-cane"].autoplace["tile_restriction"] = gleba_land_tiles
+gleba_trees = {
+    "cuttlepop",
+    "sunnycomb",
+    "slipstack",
+    "funneltrunk",
+    "hairyclubnub",
+    "teflilly",
+    "lickmaw",
+    "stingfrond",
+    "boompuff",
+    "water-cane"
+    }
+for _, tree in ipairs(gleba_trees) do
+    if data.raw.tree[tree] then
+        if data.raw.tree[tree].autoplace then
+            data.raw.tree[tree].autoplace["tile_restriction"] = gleba_land_tiles
+        end
+    end
+end
 
 data.raw.technology["space-science-pack"].localised_description = {"technology-description.space-science-pack"}
 
