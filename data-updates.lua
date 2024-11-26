@@ -485,17 +485,17 @@ data.raw.technology["asteroid-reprocessing"] = nil
 data.raw.technology["advanced-asteroid-processing"] = nil
 data.raw.technology["promethium-science-pack"] = nil
 data.raw.technology["asteroid-productivity"] = nil
-  local inputs = data.raw.lab["lab"].inputs
-  -- Iterate through the inputs table to find and remove "promethium-science-pack"
-  for i = #inputs, 1, -1 do
-    if inputs[i] == "space-science-pack" then
-      table.remove(inputs, i)
+for lab, lab_data in pairs(data.raw.lab) do
+    local inputs = lab_data.inputs
+    lab_data.inputs = {}
+    for i = #inputs, 1, -1 do
+        if inputs[i] == "promethium-science-pack" then
+            table.insert(lab_data.inputs, "space-science-pack")
+        elseif inputs[i] ~= "space-science-pack" then
+            table.insert(lab_data.inputs, inputs[i])
+        end
     end
-    if inputs[i] == "promethium-science-pack" then
-      inputs[i] = "space-science-pack"
-    end
-  end
-data.raw.lab.biolab.inputs = data.raw.lab["lab"].inputs
+end
 local scrap_recipe_setting = settings.startup["scrap-recipe"].value
 
 if scrap_recipe_setting == "no-ice" then
@@ -877,3 +877,11 @@ data.raw["create-platform-achievement"] = nil
 data.raw["change-surface-achievement"] = nil
 data.raw["space-connection-distance-traveled-achievement"] = nil
 data.raw["research-with-science-pack-achievement"]["research-with-promethium"] = nil
+
+for _, category in pairs(data.raw) do
+    for name, data in pairs(category) do
+        if data.surface_conditions then
+            data.surface_conditions = nil
+        end
+    end
+end
