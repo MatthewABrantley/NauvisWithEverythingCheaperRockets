@@ -1,3 +1,8 @@
+Version: 0.0.10
+Date: 2024-11-29
+  Features:
+    - Instead of adding non-wetland tiles throughout the world, overgrowth soil can be placed on any Nauvis land tiles.
+---------------------------------------------------------------------------------------------------
 Version: 0.0.9
 Date: 2024-11-26
   Features:

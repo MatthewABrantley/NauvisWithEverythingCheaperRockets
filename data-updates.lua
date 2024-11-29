@@ -143,17 +143,17 @@ gleba_land_tiles = {
 --   "wetland-green-slime",
 --   "wetland-pink-tentacle",
 --   "wetland-red-tentacle",
-  "lowland-brown-blubber",
-  "lowland-olive-blubber",
-  "lowland-olive-blubber-2",
-  "lowland-olive-blubber-3",
-  "lowland-cream-red",
-  "lowland-red-vein",
-  "lowland-red-vein-2",
-  "lowland-red-vein-3",
-  "lowland-red-vein-4",
-  "lowland-red-vein-dead",
-  "lowland-red-infection",
+--   "lowland-brown-blubber",
+--   "lowland-olive-blubber",
+--   "lowland-olive-blubber-2",
+--   "lowland-olive-blubber-3",
+--   "lowland-cream-red",
+--   "lowland-red-vein",
+--   "lowland-red-vein-2",
+--   "lowland-red-vein-3",
+--   "lowland-red-vein-4",
+--   "lowland-red-vein-dead",
+--   "lowland-red-infection",
 --   "lowland-pale-green",
 --   "lowland-cream-cauliflower",
 --   "lowland-cream-cauliflower-2",
@@ -214,6 +214,12 @@ data.raw.tile["ammoniacal-ocean-2"].autoplace = resource_autoplace.resource_auto
       has_starting_area_placement = false,
       autoplace_control_name = "ammoniacal_ocean"
     }
+
+nauvis_tiles = {"grass-1", "grass-2", "grass-3", "grass-4", "dry-dirt", "dirt-1", "dirt-2", "dirt-3", "dirt-4", "dirt-5", "dirt-6", "dirt-7", "sand-1", "sand-2", "sand-3", "red-desert-0", "red-desert-1", "red-desert-2", "red-desert-3"}
+for _, tile in pairs(nauvis_tiles) do
+    table.insert(data.raw.item["overgrowth-yumako-soil"]["place_as_tile"]["tile_condition"], tile)
+    table.insert(data.raw.item["overgrowth-jellynut-soil"]["place_as_tile"]["tile_condition"], tile)
+end
 
 gleba_trees = {
     "cuttlepop",
@@ -485,6 +491,7 @@ data.raw.technology["asteroid-reprocessing"] = nil
 data.raw.technology["advanced-asteroid-processing"] = nil
 data.raw.technology["promethium-science-pack"] = nil
 data.raw.technology["asteroid-productivity"] = nil
+
 for lab, lab_data in pairs(data.raw.lab) do
     local inputs = lab_data.inputs
     lab_data.inputs = {}
