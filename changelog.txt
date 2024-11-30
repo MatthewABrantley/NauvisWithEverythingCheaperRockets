@@ -1,3 +1,8 @@
+Version: 0.0.11
+Date: 2024-11-30
+  Features:
+    - Re-added gleba land tiles because without them it is filling the world with wetlands. Hopefully a temporary measure.
+---------------------------------------------------------------------------------------------------
 Version: 0.0.10
 Date: 2024-11-29
   Features:
