@@ -10,6 +10,14 @@ for _, tech in pairs(data.raw.technology) do
                 tech.prerequisites[i] = "recycling"
             elseif prerequisite == "planet-discovery-aquilo" then
                 tech.prerequisites[i] = "lithium-processing"
+            elseif prerequisite == "space-platform" then
+                tech.prerequisites[i] = "low-density-structure"
+            elseif prerequisite == "space-platform-thruster" then
+                tech.prerequisites[i] = "rocket-fuel"
+            elseif prerequisite == "asteroid-reprocessing" then
+                tech.prerequisites[i] = "processing-unit"
+            elseif prerequisite == "advanced-asteroid-processing" then
+                tech.prerequisites[i] = "advanced-material-processing-2"
             end
         end
     end

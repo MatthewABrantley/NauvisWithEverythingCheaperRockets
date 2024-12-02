@@ -1,3 +1,8 @@
+Version: 0.0.12
+Date: 2024-12-02
+  Fixes:
+    - Fixed compatibility with mods whose technologies use space platform and related technologies as prerequisites.
+---------------------------------------------------------------------------------------------------
 Version: 0.0.11
 Date: 2024-11-30
   Features:
