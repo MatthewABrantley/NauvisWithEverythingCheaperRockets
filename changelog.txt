@@ -1,3 +1,10 @@
+Version: 0.0.14
+Date: 2024-12-07
+  Features:
+    - Demolisher Territories and Demolisher Safe Zone Radius options!
+  Fixes:
+    - The expression used to determine which size Demolishers appear in a given territory now scales with the new Safe Zone Radius, so you should see Small Demolishers again!
+---------------------------------------------------------------------------------------------------
 Version: 0.0.13
 Date: 2024-12-04
   Fixes:

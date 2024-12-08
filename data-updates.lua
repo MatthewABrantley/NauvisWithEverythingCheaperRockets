@@ -5,20 +5,21 @@ local simulations = require("__base__.prototypes.factoriopedia-simulations")
 local resource_autoplace = require("resource-autoplace")
 local procession_graphic_catalogue_types = require("__base__/prototypes/planet/procession-graphic-catalogue-types")
 
-data.raw.planet.nauvis.map_gen_settings.territory_settings = data.raw.planet.vulcanus.map_gen_settings.territory_settings
-if mods["base"] == "2.0.20" then
-    data.raw["noise-expression"]["demolisher_territory_expression"]["local_expressions"]["starting_area"] = "0 < spot_at_angle{angle = vulcanus_mountains_angle - 5 * vulcanus_starting_direction,\z
-                                         distance = 100 * vulcanus_starting_area_radius + 32,\z
-                                         radius = 24 * 32,\z
-                                         x_distortion = 0,\z
-                                         y_distortion = 0}"
-else
+local demolisher_territories = settings.startup["saws-demolisher-territories"].value
+if demolisher_territories then
+    local demolisher_safe_zone = settings.startup["saws-demolisher-safe-zone"].value
+    data.raw.planet.nauvis.map_gen_settings.territory_settings = data.raw.planet.vulcanus.map_gen_settings.territory_settings
+
+
     data.raw["noise-expression"]["demolisher_starting_area"]["expression"] = "0 < starting_spot_at_angle{angle = vulcanus_mountains_angle - 5 * vulcanus_starting_direction,\z
                                              distance = 100 * vulcanus_starting_area_radius + 32,\z
-                                             radius = 24 * 32,\z
+                                             radius = ".. demolisher_safe_zone .." * 32,\z
                                              x_distortion = 0,\z
                                              y_distortion = 0}"
+    data.raw["noise-expression"]["demolisher_variation_expression"]["expression"] = "floor(clamp((distance - (" .. demolisher_safe_zone - 7 .. " * 32)) / (18 * 32) - 0.25, 0, 4)) + (-99 * no_enemies_mode)"
+
 end
+
 data.raw.planet.vulcanus.map_gen_settings = nil
 data.raw.planet.gleba.map_gen_settings = nil
 data.raw.planet.fulgora.map_gen_settings = nil
@@ -503,7 +504,7 @@ for lab, lab_data in pairs(data.raw.lab) do
         end
     end
 end
-local scrap_recipe_setting = settings.startup["scrap-recipe"].value
+local scrap_recipe_setting = settings.startup["saws-scrap-recipe"].value
 
 if scrap_recipe_setting == "no-ice" then
     data.raw.recipe["scrap-recycling"].results =
