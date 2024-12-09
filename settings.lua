@@ -26,35 +26,35 @@ data:extend({
     type = "bool-setting",
     name = "saws-music-space",
     setting_type = "startup",
-    default_value = false,
+    default_value = true,
     order = "c-a"
   },
   {
     type = "bool-setting",
     name = "saws-music-vulcanus",
     setting_type = "startup",
-    default_value = false,
+    default_value = true,
     order = "c-b"
   },
   {
     type = "bool-setting",
     name = "saws-music-fulgora",
     setting_type = "startup",
-    default_value = false,
+    default_value = true,
     order = "c-c"
   },
   {
     type = "bool-setting",
     name = "saws-music-gleba",
     setting_type = "startup",
-    default_value = false,
+    default_value = true,
     order = "c-d"
   },
   {
     type = "bool-setting",
     name = "saws-music-aquilo",
     setting_type = "startup",
-    default_value = false,
+    default_value = true,
     order = "c-e"
   },
 })
