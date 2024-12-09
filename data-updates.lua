@@ -893,3 +893,15 @@ for _, category in pairs(data.raw) do
         end
     end
 end
+
+for music_name, music in pairs(data.raw["ambient-sound"]) do
+    if (music.planet == "vulcanus" and settings.startup["saws-music-vulcanus"].value) or (music.planet == "fulgora" and settings.startup["saws-music-fulgora"].value) or (music.planet == "gleba" and settings.startup["saws-music-gleba"].value) or (music.planet == "aquilo" and settings.startup["saws-music-aquilo"].value) or (music.planet == nil and settings.startup["saws-music-space"].value) then
+        if music.track_type ~= "menu-track" then
+            log(music_name)
+            music.planet = "nauvis"
+            if music.track_type == "hero-track" then
+                music.track_type = "main-track"
+            end
+        end
+    end
+end
