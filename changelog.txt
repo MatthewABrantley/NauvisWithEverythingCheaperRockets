@@ -1,3 +1,7 @@
+Version: 0.0.23
+Date: 2025-04-26
+  Changes:
+    - Rocket Parts have the original cost multipler again
 Version: 0.0.22
 Date: 2025-04-26
   Changes:
