@@ -1,9 +1,9 @@
 {
-    "name": "SpaceAgeWithoutSpace",
-    "version": "0.0.15",
-    "title": "Space Age Without Space",
-    "author": "Alchav",
-    "description": "All the new Space Age content minus the other planets and interplanetary logistics. Play with the new toys, craft the new science packs, and battle the new enemies at home on Nauvis.\n\nBeta version! Report any issues or suggestions.",
+    "name": "NauvisWithEverything",
+    "version": "0.0.21",
+    "title": "Nauvis With Everything",
+    "author": "Thepolarized",
+    "description": "Everything you need to beat space age all without leaving the comfort of Nauvis! Original code by Alchav.",
     "factorio_version": "2.0",
     "dependencies": [
         "base >= 2.0.23",
