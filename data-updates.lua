@@ -20,19 +20,9 @@ if demolisher_territories then
 
 end
 
-data.raw.planet.vulcanus.map_gen_settings = nil
-data.raw.planet.gleba.map_gen_settings = nil
-data.raw.planet.fulgora.map_gen_settings = nil
-data.raw.planet.aquilo.map_gen_settings = nil
 
--- data.raw["autoplace-control"].vulcanus_volcanism = nil
--- data.raw["autoplace-control"].gleba_water = nil
--- data.raw["autoplace-control"].fulgora_islands = nil
-data.raw["autoplace-control"].vulcanus_coal = nil
-data.raw["autoplace-control"].gleba_stone = nil
-data.raw["autoplace-control"].aquilo_crude_oil = nil
--- data.raw["autoplace-control"].gleba_cliffs = nil
--- data.raw["autoplace-control"].fulgora_cliffs = nil
+
+
 
 data.raw.character.character.mining_categories = {"basic-solid", "hard-solid"}
 data.raw.planet.nauvis.map_gen_settings.autoplace_controls["lithium_brine"] = {}
@@ -188,6 +178,9 @@ gleba_land_tiles = {
 for _, tile_name in ipairs(gleba_land_tiles) do
   data.raw.planet.nauvis.map_gen_settings.autoplace_settings["tile"].settings[tile_name] = {}
 end
+for _, tile_name in ipairs(gleba_land_tiles) do
+  data.raw.planet.gleba.map_gen_settings.autoplace_settings["tile"].settings[tile_name] = {}
+end
 data.raw.planet.nauvis.map_gen_settings.autoplace_settings["tile"].settings["ammoniacal-ocean"] = {}
 data.raw.planet.nauvis.map_gen_settings.autoplace_settings["tile"].settings["ammoniacal-ocean-2"] = {}
 
@@ -242,33 +235,7 @@ for _, tree in ipairs(gleba_trees) do
     end
 end
 
-data.raw.technology["space-science-pack"].localised_description = {"technology-description.space-science-pack"}
-
-data.raw["rocket-silo"]["rocket-silo"].launch_to_space_platforms = false
-data.raw["rocket-silo"]["rocket-silo"].to_be_inserted_to_rocket_inventory_size = 1
-data.raw["rocket-silo"]["rocket-silo"].logistic_trash_inventory_size = 0
-data.raw["rocket-silo-rocket"]["rocket-silo-rocket"].inventory_size = 0
-
-
 data.raw["rocket-silo"]["rocket-silo"].rocket_parts_required = 100
-data.raw.technology["rocket-silo"].effects =     {
-      {
-        type = "unlock-recipe",
-        recipe = "rocket-silo"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "rocket-part"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "cargo-landing-pad"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "satellite"
-      }
-    }
 data.raw.recipe["rocket-silo"].ingredients =
 {
       {type = "item", name = "lithium-plate", amount = 1000},
@@ -284,103 +251,47 @@ data.raw.recipe["rocket-part"].ingredients =
   {type = "item", name = "rocket-fuel", amount = 10}
 }
 data.raw.technology["rocket-silo"].prerequisites = {"quantum-processor"}
-data.raw.technology["rocket-silo"].unit.ingredients =
-{
-        {"automation-science-pack", 1},
-        {"logistic-science-pack", 1},
-        {"chemical-science-pack", 1},
-        {"production-science-pack", 1},
-        {"utility-science-pack", 1},
-        {"metallurgic-science-pack", 1},
-        {"agricultural-science-pack", 1},
-        {"electromagnetic-science-pack", 1},
-        {"cryogenic-science-pack", 1}
-}
-data.raw["rocket-silo"]["rocket-silo"].circuit_connector = nil
-data.raw["rocket-silo"]["rocket-silo"].circuit_wire_max_distance = nil
-data.raw.technology["space-science-pack"] = nil
-data:extend({
-      {
-    type = "technology",
-    name = "space-science-pack",
-    icon = "__base__/graphics/technology/space-science-pack.png",
-    icon_size = 256,
-    essential = true,
-    effects = {},
-    research_trigger =
-    {
-      type = "send-item-to-orbit",
-      item = "satellite"
-    },
-    prerequisites = {"rocket-silo"}
-  },
-  {
-    type = "item",
-    name = "satellite",
-    icon = "__base__/graphics/icons/satellite.png",
-    subgroup = "space-related",
-    order = "d[rocket-parts]-e[satellite]",
-    inventory_move_sound = item_sounds.mechanical_inventory_move,
-    pick_sound = item_sounds.mechanical_inventory_pickup,
-    drop_sound = item_sounds.mechanical_inventory_move,
-    stack_size = 1,
-    weight = 1 * tons,
-    rocket_launch_products = {{type = "item", name = "space-science-pack", amount = 1000}},
-    send_to_orbit_mode = "automated"
-  },
-  {
-    type = "recipe",
-    name = "satellite",
-    energy_required = 5,
-    enabled = false,
-    category = "crafting",
-    ingredients =
-    {
-      {type = "item", name = "low-density-structure", amount = 100},
-      {type = "item", name = "solar-panel", amount = 100},
-      {type = "item", name = "accumulator", amount = 100},
-      {type = "item", name = "radar", amount = 5},
-      {type = "item", name = "quantum-processor", amount = 100},
-      {type = "item", name = "rocket-fuel", amount = 50},
-      {type = "item", name = "biter-egg", amount = 1000}
-    },
-    results = {{type="item", name="satellite", amount=1}},
-    requester_paste_multiplier = 1
-  },
 
+
+
+
+
+data:extend({
   {
-    type = "technology",
-    name = "lava-processing",
+  type = "technology",
+  name = "lava-processing",
 --     localised_name = "Lava Processing",
 --     localised_description = "Enables processing Molten Iron and Molten Copper from Lava.",
-    icon = "__space-age__/graphics/icons/fluid/lava.png",
-    icon_size = 64,
-    effects = {
-      {
-        type = "unlock-recipe",
-        recipe = "molten-iron-from-lava"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "molten-copper-from-lava"
-      }
+  icon = "__space-age__/graphics/icons/fluid/lava.png",
+  icon_size = 64,
+  effects = {
+    {
+      type = "unlock-recipe",
+      recipe = "molten-iron-from-lava"
     },
-    prerequisites = {"production-science-pack", "metallurgic-science-pack"},
-    unit = {
-      count = 1000,
-      ingredients =
-      {
-        {"automation-science-pack", 1},
-        {"logistic-science-pack", 1},
-        {"chemical-science-pack", 1},
-        {"production-science-pack", 1},
-        {"metallurgic-science-pack", 1}
-      },
-      time = 30
+    {
+      type = "unlock-recipe",
+      recipe = "molten-copper-from-lava"
     }
+  },
+  prerequisites = {"production-science-pack", "metallurgic-science-pack"},
+  unit = {
+    count = 1000,
+    ingredients =
+    {
+      {"automation-science-pack", 1},
+      {"logistic-science-pack", 1},
+      {"chemical-science-pack", 1},
+      {"production-science-pack", 1},
+      {"metallurgic-science-pack", 1}
+    },
+    time = 30
   }
+}
 
 })
+
+
 
 
 data.raw.technology["agricultural-science-pack"].prerequisites = {"bioflux"}
@@ -433,7 +344,130 @@ data.raw.technology["cryogenic-science-pack"].unit = {
       },
       time = 60
 }
+data.raw.technology["captivity"].unit = {
+  count = 1000,
+  ingredients =
+  {
+    {"automation-science-pack", 1},
+    {"logistic-science-pack", 1},
+    {"chemical-science-pack", 1},
+    {"military-science-pack", 1},
+    {"agricultural-science-pack", 1},
+  },
+  time = 60
+}
 
+data.raw.technology["quantum-processor"].unit = {
+  count = 500,
+  ingredients =
+  {
+    {"automation-science-pack", 1},
+    {"logistic-science-pack", 1},
+    {"chemical-science-pack", 1},
+    {"production-science-pack", 1},
+    {"utility-science-pack", 1},
+    {"metallurgic-science-pack", 1},
+    {"agricultural-science-pack", 1},
+    {"electromagnetic-science-pack", 1},
+    {"cryogenic-science-pack", 1},
+  },
+  time = 60
+}
+data.raw.technology["carbon-fiber"].unit = {
+  count = 500,
+  ingredients =
+  {
+    {"automation-science-pack", 1},
+    {"logistic-science-pack", 1},
+    {"chemical-science-pack", 1},
+    {"agricultural-science-pack", 1},
+},
+  time = 60
+}
+data.raw.technology["productivity-module-2"].unit = {
+  count = 75,
+  ingredients =
+  {
+    {"automation-science-pack", 1},
+    {"logistic-science-pack", 1},
+    {"chemical-science-pack", 1},
+},
+  time = 30
+}
+data.raw.technology["productivity-module-3"].unit = {
+  count = 300,
+  ingredients =
+  {
+    {"automation-science-pack", 1},
+    {"logistic-science-pack", 1},
+    {"chemical-science-pack", 1},
+    {"production-science-pack", 1},
+},
+  time = 60
+}
+data.raw.technology["efficiency-module-2"].unit = {
+  count = 75,
+  ingredients =
+  {
+    {"automation-science-pack", 1},
+    {"logistic-science-pack", 1},
+    {"chemical-science-pack", 1},
+},
+  time = 30
+}
+data.raw.technology["efficiency-module-3"].unit = {
+  count = 300,
+  ingredients =
+  {
+    {"automation-science-pack", 1},
+    {"logistic-science-pack", 1},
+    {"chemical-science-pack", 1},
+    {"production-science-pack", 1},
+},
+  time = 60
+}
+data.raw.technology["speed-module-2"].unit = {
+  count = 75,
+  ingredients =
+  {
+    {"automation-science-pack", 1},
+    {"logistic-science-pack", 1},
+    {"chemical-science-pack", 1},
+},
+  time = 30
+}
+data.raw.technology["speed-module-3"].unit = {
+  count = 300,
+  ingredients =
+  {
+    {"automation-science-pack", 1},
+    {"logistic-science-pack", 1},
+    {"chemical-science-pack", 1},
+    {"production-science-pack", 1},
+},
+  time = 60
+}
+data.raw.technology["quality-module-2"].unit = {
+  count = 75,
+  ingredients =
+  {
+    {"automation-science-pack", 1},
+    {"logistic-science-pack", 1},
+    {"chemical-science-pack", 1},
+},
+  time = 30
+}
+data.raw.technology["quality-module-3"].unit = {
+  count = 300,
+  ingredients =
+  {
+    {"automation-science-pack", 1},
+    {"logistic-science-pack", 1},
+    {"chemical-science-pack", 1},
+    {"production-science-pack", 1},
+},
+  time = 60
+}
 data.raw.technology["lithium-processing"].effects = {
           {
         type = "unlock-recipe",
@@ -460,50 +494,11 @@ data.raw.technology["lithium-processing"].effects = {
         recipe = "lithium-plate"
       }
   }
-for _, tech in pairs(data.raw.technology) do
-  if tech.unit and tech.unit.ingredients then
-    for i = #tech.unit.ingredients, 1, -1 do
-      if tech.unit.ingredients[i][1] == "space-science-pack" then
-        table.remove(tech.unit.ingredients, i)
-      elseif tech.unit.ingredients[i][1] == "promethium-science-pack" then
-        tech.unit.ingredients[i][1] = "space-science-pack"
-      end
-    end
-  end
 
-  if tech.prerequisites then
-    for i = #tech.prerequisites, 1, -1 do
-      if tech.prerequisites[i] == "space-science-pack" then
-        table.remove(tech.prerequisites, i)
-      elseif tech.prerequisites[i] == "promethium-science-pack" then
-        tech.prerequisites[i] = "space-science-pack"
-      end
-    end
-  end
-end
-data.raw.technology["space-platform"] = nil
-data.raw.technology["space-platform-thruster"] = nil
-data.raw.technology["planet-discovery-vulcanus"] = nil
-data.raw.technology["planet-discovery-gleba"] = nil
-data.raw.technology["planet-discovery-fulgora"] = nil
-data.raw.technology["planet-discovery-aquilo"] = nil
-data.raw.technology["lightning-collector"] = nil
-data.raw.technology["asteroid-reprocessing"] = nil
-data.raw.technology["advanced-asteroid-processing"] = nil
-data.raw.technology["promethium-science-pack"] = nil
-data.raw.technology["asteroid-productivity"] = nil
 
-for lab, lab_data in pairs(data.raw.lab) do
-    local inputs = lab_data.inputs
-    lab_data.inputs = {}
-    for i = #inputs, 1, -1 do
-        if inputs[i] == "promethium-science-pack" then
-            table.insert(lab_data.inputs, "space-science-pack")
-        elseif inputs[i] ~= "space-science-pack" then
-            table.insert(lab_data.inputs, inputs[i])
-        end
-    end
-end
+
+
+
 local scrap_recipe_setting = settings.startup["saws-scrap-recipe"].value
 
 if scrap_recipe_setting == "no-ice" then
@@ -756,21 +751,7 @@ data.raw.technology["logistic-system"].unit.ingredients =
   {"chemical-science-pack", 1},
   {"utility-science-pack", 1}
 }
-data.raw.technology["research-productivity"].prerequisites = {"space-science-pack"}
-data.raw.technology["research-productivity"].unit.ingredients =
-{
-    {"automation-science-pack", 1},
-        {"logistic-science-pack", 1},
-        {"military-science-pack", 1},
-        {"chemical-science-pack", 1},
-        {"production-science-pack", 1},
-        {"utility-science-pack", 1},
-        {"metallurgic-science-pack", 1},
-        {"agricultural-science-pack", 1},
-        {"electromagnetic-science-pack", 1},
-        {"cryogenic-science-pack", 1},
-        {"space-science-pack", 1}
-}
+
 
 data.raw.technology["speed-module-2"].prerequisites = {"speed-module", "processing-unit"}
 data.raw.technology["productivity-module-2"].prerequisites = {"productivity-module", "processing-unit"}
@@ -793,7 +774,7 @@ data.raw.technology["kovarex-enrichment-process"].unit =
 }
 data.raw.tool["space-science-pack"].stack_size = 2000
 
-data.raw["cargo-landing-pad"]["cargo-landing-pad"].trash_inventory_size = nil
+
 data.raw["cargo-landing-pad"]["cargo-landing-pad"].cargo_station_parameters =
     {
       hatch_definitions =
@@ -880,11 +861,6 @@ main_menu_simulations.fulgora_nightfall = nil
 main_menu_simulations.fulgora_race = nil
 main_menu_simulations.aquilo_send_help = nil
 main_menu_simulations.aquilo_starter = nil
-
-data.raw["create-platform-achievement"] = nil
-data.raw["change-surface-achievement"] = nil
-data.raw["space-connection-distance-traveled-achievement"] = nil
-data.raw["research-with-science-pack-achievement"]["research-with-promethium"] = nil
 
 for _, category in pairs(data.raw) do
     for name, data in pairs(category) do
