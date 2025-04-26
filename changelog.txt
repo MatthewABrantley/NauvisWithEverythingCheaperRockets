@@ -1,10 +1,7 @@
 Version: 0.0.22
 Date: 2025-04-26
-  Fixes:
-    - Fixed issue where space science was required to research tier two and three modules.
-    - Fixed compatibility with mods whose technologies use space platform and related technologies as prerequisites.
-    - Hopefully fix desync issues in multiplayer.
-
+  Changes:
+    - Rocket Parts cost Processing Units again
 Version: 0.0.21
 Date: 2025-01-18
   Fixes:
