@@ -246,7 +246,7 @@ data.raw.recipe["rocket-silo"].ingredients =
 }
 data.raw.recipe["rocket-part"].ingredients =
 {
-  {type = "item", name = "quantum-processor", amount = 10},
+  {type = "item", name = "processing-unit", amount = 10},
   {type = "item", name = "low-density-structure", amount = 10},
   {type = "item", name = "rocket-fuel", amount = 10}
 }
