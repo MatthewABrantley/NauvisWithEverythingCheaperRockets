@@ -1,3 +1,38 @@
+Version: 0.0.21
+Date: 2025-01-18
+  Fixes:
+    - Fixed issue where space science was required to research tier two and three modules.
+---------------------------------------------------------------------------------------------------
+Version: 0.0.20
+Date: 2025-01-12
+  Fixes:
+    - Fixed issue where space science was required to research captivity, carbon fiber, and quantum processors.
+---------------------------------------------------------------------------------------------------
+Version: 0.0.19
+Date: 2025-01-10
+  Fixes:
+    - Fixed issue where cargo landing pad had no trash slots.
+    - Fixed planet generation for Vulcanus, Gleba, Fulgora, and Aquilo.
+    - Removed victory screen for launching a rocket.
+  Known Issues:
+    - Gleba has a bug where most of the local fauna is gone. Jellynut and Yumako still spawn, so planet completion should still be possible. I am actively working on fixing this.
+    - Vulacnus' lava generates the same as the lava lakes on Nauvis, resulting in exceedingly small amounts of lava. I recommend a mod such as lavafill until I am able to fix this.
+---------------------------------------------------------------------------------------------------
+Version: 0.0.18
+Date: 2025-01-05
+  Fixes:
+    - Fixed issue where space science was required to research captivity.
+---------------------------------------------------------------------------------------------------
+Version: 0.0.17
+Date: 2024-12-31
+  Fixes:
+    - Fixed issue where space science was required to research carbon fiber and quantum processors.
+---------------------------------------------------------------------------------------------------
+Version: 0.0.16
+Date: 2024-12-09
+  Features:
+    - Simplified Chinese translation by cyx2015s
+---------------------------------------------------------------------------------------------------
 Version: 0.0.15
 Date: 2024-12-09
   Features:
