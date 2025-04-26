@@ -244,12 +244,6 @@ data.raw.recipe["rocket-silo"].ingredients =
       {type = "item", name = "quantum-processor", amount = 200},
       {type = "item", name = "electric-engine-unit", amount = 200}
 }
-data.raw.recipe["rocket-part"].ingredients =
-{
-  {type = "item", name = "processing-unit", amount = 10},
-  {type = "item", name = "low-density-structure", amount = 10},
-  {type = "item", name = "rocket-fuel", amount = 10}
-}
 data.raw.technology["rocket-silo"].prerequisites = {"quantum-processor"}
 
 
