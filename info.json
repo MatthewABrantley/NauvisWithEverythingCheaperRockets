@@ -1,9 +1,9 @@
 {
     "name": "NauvisWithEverythingCheaperRockets",
-    "version": "0.0.22",
+    "version": "0.0.23",
     "title": "Nauvis With Everything - Cheaper Rockets",
-    "author": "Thepolarized",
-    "description": "Everything you need to beat space age all without leaving the comfort of Nauvis! Original code by Alchav. This version includes cheaper rocket parts.",
+    "author": "Ralt",
+    "description": "Everything you need to beat space age all without leaving the comfort of Nauvis! Original code by Alchav and Thepolarized. This version includes cheaper rocket parts.",
     "factorio_version": "2.0",
     "dependencies": [
         "base >= 2.0.23",
